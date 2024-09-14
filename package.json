@@ -1,0 +1,21 @@
+{
+  "name": "sky-alarm",
+  "version": "1.0.0",
+  "description": "it's raining tacos",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "polypixeldev",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/polypixeldev/sky-alarm#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
