@@ -73,6 +73,9 @@ app.get("/alerts", async (req, res) => {
     }
   }
 
+  // testing: add random event
+  alerts.push(yearEvents[Math.round(Math.random() * yearEvents.length - 1)]);
+
   return res.json(alerts);
 });
 
