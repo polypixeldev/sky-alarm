@@ -63,7 +63,6 @@ app.get("/refresh", async (req, res) => {
 });
 
 app.get("/alerts", async (req, res) => {
-  console.log(yearEvents);
   let alerts: Event[] = [];
 
   for (const event of yearEvents) {
