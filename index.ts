@@ -16,7 +16,7 @@ function isDST(d: Date) {
   return Math.max(jan, jul) !== d.getTimezoneOffset();
 }
 
-app.get("/refresh", async (req, res) => {
+async function refresh() {
   const date = new Date();
 
   // Sky Event Almanacs Courtesy of Fred Espenak, www.AstroPixels.com
@@ -58,7 +58,10 @@ app.get("/refresh", async (req, res) => {
       month++;
     }
   }
+}
 
+app.get("/refresh", async (req, res) => {
+  await refresh();
   return res.sendStatus(200);
 });
 
@@ -79,5 +82,7 @@ app.get("/alerts", async (req, res) => {
   return res.json(alerts);
 });
 
-app.listen(process.env.PORT ?? 3000);
-console.log(`Sky Alarm is listening on ${process.env.PORT ?? 3000}`);
+refresh().then(() => {
+  app.listen(process.env.PORT ?? 3000);
+  console.log(`Sky Alarm is listening on ${process.env.PORT ?? 3000}`);
+});
